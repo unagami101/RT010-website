@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kegiatan Warga - RT 010</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      :root {
+        --bg-color: #f9f9f9;
+        --text-color: #333;
+        --card-bg: #fff;
+        --header-bg: #00796b;
+        --link-color: white;
+      }
+
+      body.dark-mode {
+        --bg-color: #121212;
+        --text-color: #f0f0f0;
+        --card-bg: #1e1e1e;
+        --header-bg: #004d40;
+        --link-color: #f0f0f0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background 0.3s, color 0.3s;
+      }
+
+      header {
+        background-color: var(--header-bg);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+      }
+
+      header a {
+        display: inline-block;
+        margin-top: 10px;
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .theme-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 0 20px;
+      }
+
+      .card {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 30px;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .card h2 {
+        color: #00796b;
+      }
+
+      .slider-wrapper {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .slider {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+      }
+
+      .slider img {
+        height: 200px;
+        margin-right: 10px;
+        border-radius: 8px;
+      }
+
+      .slide-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 20px;
+        z-index: 1;
+      }
+
+      .slide-left {
+        left: 0;
+      }
+      .slide-right {
+        right: 0;
+      }
+
+      @media screen and (max-width: 600px) {
+        .slider img {
+          height: 140px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Kegiatan Warga RT 010</h1>
+      <a href="index.html">← Kembali ke Beranda</a>
+      <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+    </header>
+
+    <main class="container">
+      <!-- Kerja Bakti -->
+      <div class="card">
+        <h2>Kerja Bakti</h2>
+        <p>
+          Kegiatan Semua warga RT 010 diharapkan hadir untuk membersihkan
+          lingkungan secara bergotong-royong.
+        </p>
+        <div class="slider-wrapper">
+          <button class="slide-btn slide-left" onclick="slide(this, -1)">
+            ‹
+          </button>
+          <div class="slider">
+            <img src="images/kerjabakti.jpg" alt="Kerja Bakti 1" />
+            <img src="images/kerjabakti2.jpg" alt="Kerja Bakti 2" />
+            <img src="images/kerjabakti3.jpg" alt="Kerja Bakti 3" />
+          </div>
+          <button class="slide-btn slide-right" onclick="slide(this, 1)">
+            ›
+          </button>
+        </div>
+      </div>
+
+      <!-- Tensi -->
+      <div class="card">
+        <h2>Tensi Kesehatan</h2>
+        <p>
+          Pemeriksaan tekanan darah secara berkala oleh kader kesehatan setiap
+          Sabtu dan Minggu, langsung dari rumah ke rumah.
+        </p>
+        <div class="slider-wrapper">
+          <button class="slide-btn slide-left" onclick="slide(this, -1)">
+            ‹
+          </button>
+          <div class="slider">
+            <img src="images/tensi 1.jpg" alt="Tensi 1" />
+            <img src="images/tensi 2.jpg" alt="Tensi 2" />
+            <img src="images/tensi 3.jpg" alt="Tensi 3" />
+            <img src="images/tensi 4.jpg" alt="Tensi 4" />
+          </div>
+          <button class="slide-btn slide-right" onclick="slide(this, 1)">
+            ›
+          </button>
+        </div>
+      </div>
+
+      <!-- 17 Agustusan -->
+      <div class="card">
+        <h2>Perayaan 17 Agustus</h2>
+        <p>
+          Setiap tahun, warga RT 010 merayakan HUT RI dengan lomba-lomba
+          tradisional, makan bersama, dan malam tirakatan yang meriah.
+        </p>
+        <div class="slider-wrapper">
+          <button class="slide-btn slide-left" onclick="slide(this, -1)">
+            ‹
+          </button>
+          <div class="slider">
+            <img src="images/agustusan1.JPG" alt="Agustusan 1" />
+            <img src="images/agustusan2.JPG" alt="Agustusan 2" />
+            <img src="images/agustusan3.JPG" alt="Agustusan 2" />
+            <img src="images/agustusan4.JPG" alt="Agustusan 2" />
+            <img src="images/agustusan5.JPG" alt="Agustusan 2" />
+            <img src="images/agustusan6.JPG" alt="Agustusan 2" />
+          </div>
+          <button class="slide-btn slide-right" onclick="slide(this, 1)">
+            ›
+          </button>
+        </div>
+      </div>
+
+      <!-- Pentas Seni -->
+      <div class="card">
+        <h2>Pentas Seni Generasi 10</h2>
+        <p>
+          Setiap tahun, warga RT 010 mengadakan pentas seni di malam puncak
+          setelah merayakan 17 agustusan bersamaan dengan pembagian hadiah
+          pemenang lomba.
+        </p>
+        <div class="slider-wrapper">
+          <button class="slide-btn slide-left" onclick="slide(this, -1)">
+            ‹
+          </button>
+          <div class="slider">
+            <img src="images/pentas seni_1.JPG" alt="Pentas Seni 1" />
+            <img src="images/pentas seni_2.JPG" alt="Pentas Seni 2" />
+            <img src="images/pentas seni_3.JPG" alt="Pentas Seni 3" />
+            <img src="images/pentas seni_4.JPG" alt="Pentas Seni 4" />
+            <img src="images/pentas seni_5.JPG" alt="Pentas Seni 5" />
+          </div>
+          <button class="slide-btn slide-right" onclick="slide(this, 1)">
+            ›
+          </button>
+        </div>
+      </div>
+
+      <!-- Pawai -->
+      <div class="card">
+        <h2>Pawai Kemerdekaan</h2>
+        <p>
+          Pawai keliling lingkungan RT dengan kostum unik dan atraksi kreatif
+          dari tiap kelompok warga.
+        </p>
+      </div>
+
+      <!-- Halal Bihalal -->
+      <div class="card">
+        <h2>Halal Bihalal</h2>
+        <div class="slider-wrapper">
+          <button class="slide-btn slide-left" onclick="slide(this, -1)">
+            ‹
+          </button>
+          <div class="slider">
+        <img src="images/halal bi halal 1.jpg" alt="halal bi halal 1" />
+      </div>
+      <button class="slide-btn slide-right" onclick="slide(this, 1)">
+        ›
+      </button>
+    </div>
+  </div>
+
+
+        <p>
+          Setelah Idul Fitri, warga RT 010 mengadakan halal bihalal sebagai
+          ajang silaturahmi dan saling memaafkan.
+        </p>
+      </div>
+
+      <!-- Qurban -->
+      <div class="card">
+        <h2>Pemotongan Hewan Qurban</h2>
+        <p>
+          Di hari raya Idul Adha, dilakukan pemotongan hewan qurban dan
+          distribusi daging kepada warga sekitar.
+        </p>
+      </div>
+
+      <!-- Tambahan Kegiatan Lainnya -->
+      <div class="card">
+        <h2>Kegiatan Lainnya</h2>
+        <p>
+          Selain kegiatan rutin, RT 010 juga menyelenggarakan berbagai kegiatan
+          insidental yang mempererat tali persaudaraan antarwarga:
+        </p>
+        <ul>
+          <li>Arisan warga</li>
+          <li>Pengajian rutin ibu-ibu</li>
+          <li>Pengajian rutin Bapak-Bapak</li>
+          <li>Pembinaan remaja dan anak-anak</li>
+          <li>Dan acara Lainnya</li>
+        </ul>
+      </div>
+    </main>
+
+    <script>
+      function slide(button, direction) {
+        const slider = button.parentElement.querySelector(".slider");
+        const scrollAmount = 220;
+        slider.scrollBy({ left: scrollAmount * direction, behavior: "smooth" });
+      }
+
+      function toggleTheme() {
+        document.body.classList.toggle("dark-mode");
+      }
+    </script>
+  </body>
+</html>

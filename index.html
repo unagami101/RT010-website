@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal WebsiteS RT 010</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-color: #ffffff;
+        --text-color: #000000;
+        --card-bg: #ffffff;
+        --header-bg: rgba(0, 123, 255, 0.8);
+      }
+
+      body.dark-mode {
+        --bg-color: #121212;
+        --text-color: #f0f0f0;
+        --card-bg: #1e1e1e;
+        --header-bg: rgba(33, 33, 33, 0.9);
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        transition: all 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        color: white;
+        padding: 1rem 2rem;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .theme-toggle {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        background: white;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 3rem 1rem;
+      }
+
+      .hero h2 {
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+        margin-top: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.5rem;
+        border-bottom: 2px solid transparent;
+      }
+
+      .nav-links a:hover {
+        border-color: #007bff;
+      }
+
+      .section {
+        padding: 2rem 1rem;
+      }
+
+      .section h2 {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .card {
+        background: var(--card-bg);
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .social {
+        text-align: center;
+        padding: 2rem 1rem;
+        background: #f2f2f2;
+      }
+
+      .social h3 {
+        margin-bottom: 1rem;
+      }
+
+      .social a {
+        margin: 0 1rem;
+        font-size: 30px;
+        text-decoration: none;
+      }
+
+      .fa-youtube {
+        color: red;
+      }
+
+      .fa-instagram {
+        color: #c13584;
+      }
+
+      footer {
+        text-align: center;
+        padding: 1rem;
+        background: #007bff;
+        color: white;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header dan tombol mode gelap -->
+    <header>
+      <h1>Portal RT 010</h1>
+      <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <h2>Selamat Datang di Website RT 010</h2>
+      <p>
+        Informasi kegiatan, dan layanan masyarakat bisa kamu temukan di sini
+      </p>
+    </section>
+
+    <!-- Navigasi -->
+    <div class="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="kegiatan.html">Kegiatan</a>
+      <a href="tentang kami.html">Tentang Kami</a>
+    </div>
+
+    <!-- Kegiatan dan Proyek -->
+    <section class="section">
+      <h2><i class="fas fa-calendar-check"></i> Kegiatan Terkini</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Pemeriksaan Kesehatan</h3>
+          <p>Tensi darah keliling dari rumah ke rumah setiap akhir pekan.</p>
+        </div>
+        <div class="card">
+          <h3>Kerja Bakti</h3>
+          <p>warga bergotong royong membersihkan lingkungan.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2><i class="fas fa-project-diagram"></i> Kegiatan Mendatang</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Pemotongan Hewan Qurban</h3>
+          <p>
+            Di hari raya Idul Adha, dilakukan pemotongan hewan qurban dan
+            distribusi daging kepada warga sekitar.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Peringatan HUT RI</h3>
+          <p>Persiapan lomba dan perayaan Hari Kemerdekaan RI.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Layanan dan Laporan Warga -->
+    <section class="section">
+      <h2><i class="fas fa-info-circle"></i> Data Layanan Masyarakat</h2>
+      <div class="grid">
+        <div class="card">
+          <ul>
+            <li>Pengurusan Surat Domisili</li>
+            <li>Pendaftaran Warga Baru</li>
+            <li>Layanan Lainnya</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Laporan Warga</h3>
+          <p>Silakan isi form berikut jika ada laporan atau pengaduan:</p>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdVldGcbK7CbhheZkB3U5YysZC6Q0VR4-GfaoR0fgcRjrV3UA/viewform?usp=preview"
+            target="_blank"
+            >📝 Formulir Google</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Sosial Media -->
+    <div class="social">
+      <h3>Ikuti Kami</h3>
+      <a
+        href="https://youtube.com/@rt010asik?si=g5i9Z7MugLLaUn1b"
+        target="_blank"
+        ><i class="fab fa-youtube"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/the.passes_?igsh=MTVxdDdzaHpjYXpnZQ=="
+        target="_blank"
+        ><i class="fab fa-instagram"></i
+      ></a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      Alamat: Jl. Tanjung lengkong, RT 010/RW 007, Kelurahan Bidara Cina,
+      Jakarta Timur 13330<br />
+      &copy; 2025 Portal RT 010
+    </footer>
+
+    <script>
+      function toggleTheme() {
+        document.body.classList.toggle("dark-mode");
+      }
+    </script>
+  </body>
+</html>

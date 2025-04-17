@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Kami - RT 010</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      :root {
+        --bg-color: #f4f4f4;
+        --text-color: #333;
+        --card-bg: #fff;
+        --header-bg: #00838f;
+        --link-color: #fff;
+      }
+
+      body.dark-mode {
+        --bg-color: #121212;
+        --text-color: #e0e0e0;
+        --card-bg: #1e1e1e;
+        --header-bg: #004d40;
+        --link-color: #80cbc4;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: all 0.3s ease;
+      }
+
+      header {
+        background-color: var(--header-bg);
+        color: var(--link-color);
+        padding: 20px;
+        text-align: center;
+        position: relative;
+      }
+
+      header a {
+        display: inline-block;
+        margin-top: 10px;
+        text-decoration: none;
+        color: var(--link-color);
+        font-weight: bold;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 0 20px;
+      }
+
+      .card {
+        background-color: var(--card-bg);
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+      }
+
+      .card h2 {
+        color: var(--header-bg);
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      /* Tombol mode malam */
+      .mode-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: var(--card-bg);
+        color: var(--text-color);
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+      }
+
+      .mode-toggle:hover {
+        background-color: var(--header-bg);
+        color: var(--link-color);
+      }
+
+      @media screen and (max-width: 600px) {
+        .container {
+          padding: 0 10px;
+        }
+
+        header h1 {
+          font-size: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Tentang RT 010</h1>
+      <a href="index.html">← Kembali ke Beranda</a>
+      <button class="mode-toggle" onclick="toggleDarkMode()">🌓 Mode</button>
+    </header>
+
+    <main class="container">
+      <div class="card">
+        <h2>Visi & Misi</h2>
+        <p>
+          <strong>Visi:</strong> Mewujudkan lingkungan yang aman, rukun, dan
+          sehat bagi seluruh warga RT 010.
+        </p>
+        <p><strong>Misi:</strong></p>
+        <ul>
+          <li>Menjalin komunikasi dan gotong royong antarwarga</li>
+          <li>
+            Meningkatkan kesejahteraan warga melalui kegiatan sosial dan
+            kemasyarakatan
+          </li>
+          <li>Mewujudkan generasi muda yang terampil dan berbakat</li>
+          <li>Mendukung kegiatan keagamaan, olahraga, dan budaya warga</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Struktur Organisasi RT 010</h2>
+        <ul>
+          <li><strong>Ketua RT:</strong> IBU.NINA RAHMAWATI</li>
+          <li><strong>Sekretaris:</strong> BAPAK.SODIKIN</li>
+          <li><strong>Bendahara:</strong> IBU.SITI SURYANI</li>
+          <li><strong>Keamanan:</strong> BAPAK.SYAHRONI</li>
+          <li><strong>Seksi Humas:</strong> BAPAK.ASHARI DAN NARTO</li>
+          <li><strong>Seksi Sosial:</strong> BAPAK.NURLI HIDAYAT</li>
+          <li><strong>Seksi Kebersihan:</strong> BAPAK.HERMAN</li>
+          <li><strong>Seksi Keagamaan:</strong> Ust. ACHROM</li>
+          <li><strong>Seksi Pemuda:</strong> RAFSAMJANI</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Struktur Organisasi PEMUDA RT 010</h2>
+        <ul>
+          <li><strong>Ketua:</strong> RAFSAMJANI</li>
+          <li><strong>Wakil:</strong> Fathir ali</li>
+          <li><strong>Sekretaris:</strong> Amelia Rizki dan Salsa</li>
+          <li><strong>Bendahara:</strong> Sulis Kusuma dan Queena</li>
+          <li><strong>Seksi Sosial:</strong> Ahmad Ibrahim</li>
+          <li><strong>Seksi Dokumentasi:</strong> Sabrian dan Jerremy</li>
+          <li><strong>Seksi Keagamaan:</strong> Rama (Samsi Ramadhan)</li>
+          <li><strong>Seksi Keamanan:</strong> Ojan (Ahmad Fauzan)</li>
+          <li><strong>Seksi Media Kreatif:</strong> Arya (Gusti Arya)</li>
+        </ul>
+      </div>
+    </main>
+
+    <script>
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+      }
+    </script>
+  </body>
+</html>
