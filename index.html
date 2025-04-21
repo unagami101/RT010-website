@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portal WebsiteS RT 010</title>
+    <title>Portal Website RT 010</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -28,11 +28,12 @@
       }
 
       body {
-        font-family: "Poppins", sans-serif;
+        font-family: "Rubik", sans-serif;
         background: var(--bg-color);
         color: var(--text-color);
         margin: 0;
         transition: all 0.3s ease;
+        overflow-x: hidden;
       }
 
       header {
@@ -43,8 +44,11 @@
         position: sticky;
         top: 0;
         z-index: 1000;
+        transition: transform 0.3s ease-in-out;
       }
-
+      header.hide {
+        transform: translateY(-100%);
+      }
       .theme-toggle {
         position: absolute;
         right: 1rem;
@@ -59,37 +63,33 @@
 
       .hero {
         text-align: center;
-        padding: 3rem 1rem;
+        padding: 2rem 1rem;
       }
 
       .hero h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
         margin-bottom: 0.5rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-        margin-top: 0;
       }
 
       .nav-links {
         display: flex;
         justify-content: center;
-        gap: 1rem;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+        gap: 1.5rem;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
       }
 
       .nav-links a {
-        color: var(--text-color);
         text-decoration: none;
-        font-weight: 600;
-        padding: 0.5rem;
-        border-bottom: 2px solid transparent;
+        color: var(--text-color);
+        padding: 0.3rem 0.7rem;
+        border: 2px solid var(--text-color);
+        border-radius: 20px;
       }
 
       .nav-links a:hover {
-        border-color: #007bff;
+        background: #007bff;
+        color: white;
       }
 
       .section {
@@ -112,27 +112,14 @@
         border-radius: 10px;
         padding: 1.5rem;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-      }
-
-      .card:hover {
-        transform: translateY(-5px);
       }
 
       .social {
         text-align: center;
         padding: 2rem 1rem;
-        background: #f2f2f2;
-      }
-
-      .social h3 {
-        margin-bottom: 1rem;
-      }
-
-      .social a {
-        margin: 0 1rem;
-        font-size: 30px;
-        text-decoration: none;
+        font-size: 36px;
+        background: var(--card-bg);
+        color: var(--text-color);
       }
 
       .fa-youtube {
@@ -140,7 +127,30 @@
       }
 
       .fa-instagram {
-        color: #c13584;
+        color: #2600ff;
+      }
+      .social a {
+        margin: 0 15px;
+        transition: transform 0.3s ease;
+        display: inline-block;
+      }
+
+      .social a i {
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+      }
+
+      .social a:hover {
+        transform: scale(1.2);
+      }
+
+      .social a:hover i.fa-youtube {
+        color: #3509fc;
+        text-shadow: 0 4px 8px rgba(255, 0, 0, 0.4);
+      }
+
+      .social a:hover i.fa-instagram {
+        color: #ff0000;
+        text-shadow: 0 4px 8px rgba(250, 7, 7, 0.966);
       }
 
       footer {
@@ -148,18 +158,54 @@
         padding: 1rem;
         background: #007bff;
         color: white;
-        font-size: 0.9rem;
+      }
+
+      /* Daun atau hujan */
+      .effect {
+        position: fixed;
+        pointer-events: none;
+        z-index: 999;
+      }
+
+      .effect i {
+        position: absolute;
+        font-size: 14px;
+        opacity: 0.7;
+        animation: fall 10s linear infinite;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+      }
+
+      .donasi {
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+
+      .donasi img {
+        max-width: 150px;
+        margin-top: 1rem;
+      }
+
+      iframe {
+        display: block;
+        margin: 0 auto;
+        border: none;
+        border-radius: 10px;
+        margin-bottom: 2rem;
       }
     </style>
   </head>
   <body>
-    <!-- Header dan tombol mode gelap -->
     <header>
       <h1>Portal RT 010</h1>
       <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
       <h2>Selamat Datang di Website RT 010</h2>
       <p>
@@ -167,20 +213,46 @@
       </p>
     </section>
 
-    <!-- Navigasi -->
     <div class="nav-links">
       <a href="index.html">Beranda</a>
-      <a href="kegiatan.html">Kegiatan</a>
+      <a href="kegiatan.html">Kegiatan Kami</a>
       <a href="tentang kami.html">Tentang Kami</a>
     </div>
 
-    <!-- Kegiatan dan Proyek -->
+    <!-- YouTube Video -->
+    <iframe
+      width="300"
+      height="200"
+      src="https://www.youtube.com/embed/Yz2wCZDYuDI"
+      allowfullscreen
+    ></iframe>
+
+    <!-- Donasi Section -->
+    <section class="donasi">
+      <h2>Top List Donasi 17 Agustusan Warga</h2>
+      <p>
+        Terima kasih untuk para donatur yang sudah membantu kegiatan RT 010.
+      </p>
+      <p>
+        <strong>Nomor Rekening:</strong> 1234567890 - Bank BNI a.n RT 010 Peduli
+      </p>
+      <img src="qrcode-donasi.png" alt="QR Code Donasi" />
+      <ul style="list-style: none; padding: 0; margin-top: 1rem">
+        <li>1.</li>
+        <li>2.</li>
+        <li>3.</li>
+        <li>4.</li>
+        <li>5.</li>
+      </ul>
+    </section>
+
+    <!-- Kegiatan -->
     <section class="section">
       <h2><i class="fas fa-calendar-check"></i> Kegiatan Terkini</h2>
       <div class="grid">
         <div class="card">
           <h3>Pemeriksaan Kesehatan</h3>
-          <p>Tensi darah keliling dari rumah ke rumah setiap akhir pekan.</p>
+          <p>Tensi darah keliling dari rumah ke rumah sebulan sekali.</p>
         </div>
         <div class="card">
           <h3>Kerja Bakti</h3>
@@ -206,7 +278,6 @@
       </div>
     </section>
 
-    <!-- Data Layanan dan Laporan Warga -->
     <section class="section">
       <h2><i class="fas fa-info-circle"></i> Data Layanan Masyarakat</h2>
       <div class="grid">
@@ -229,31 +300,62 @@
       </div>
     </section>
 
-    <!-- Sosial Media -->
     <div class="social">
       <h3>Ikuti Kami</h3>
-      <a
-        href="https://youtube.com/@rt010asik?si=g5i9Z7MugLLaUn1b"
-        target="_blank"
+      <a href="https://youtube.com/@rt010asik" target="_blank"
         ><i class="fab fa-youtube"></i
       ></a>
-      <a
-        href="https://www.instagram.com/the.passes_?igsh=MTVxdDdzaHpjYXpnZQ=="
-        target="_blank"
+      <a href="https://www.instagram.com/the.passes_" target="_blank"
         ><i class="fab fa-instagram"></i
       ></a>
     </div>
 
-    <!-- Footer -->
     <footer>
       Alamat: Jl. Tanjung lengkong, RT 010/RW 007, Kelurahan Bidara Cina,
       Jakarta Timur 13330<br />
       &copy; 2025 Portal RT 010
     </footer>
-
     <script>
       function toggleTheme() {
         document.body.classList.toggle("dark-mode");
+      }
+
+      let lastScrollTop = 0;
+      const header = document.querySelector("header");
+
+      window.addEventListener("scroll", function () {
+        const currentScroll =
+          window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScroll > lastScrollTop) {
+          header.classList.add("hide");
+        } else {
+          header.classList.remove("hide");
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+      });
+
+      // Efek musim sesuai bulan Indonesia
+      const effectContainer = document.createElement("div");
+      effectContainer.classList.add("effect");
+      document.body.appendChild(effectContainer);
+
+      const month = new Date().getMonth();
+      const icon =
+        month >= 11 || month <= 2
+          ? "💧"
+          : month >= 5 && month <= 7
+          ? "🍂"
+          : null;
+
+      if (icon) {
+        for (let i = 0; i < 40; i++) {
+          const elem = document.createElement("i");
+          elem.textContent = icon;
+          elem.style.left = Math.random() * window.innerWidth + "px";
+          elem.style.animationDuration = Math.random() * 3 + 5 + "s";
+          elem.style.fontSize = Math.random() * 10 + 10 + "px";
+          effectContainer.appendChild(elem);
+        }
       }
     </script>
   </body>
