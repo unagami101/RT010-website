@@ -13,6 +13,28 @@
       rel="stylesheet"
     />
     <style>
+      .video-container {
+        position: relative;
+        width: 100%;
+        max-width: 560px; /* Batas maksimum lebar video */
+        margin: auto;
+        overflow: hidden;
+        padding-top: 56.25%; /* Rasio 16:9 (9/16 = 0.5625) */
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 15px; /* Supaya iframe-nya juga melengkung */
+      }
+    </style>
+    <style>
       :root {
         --bg-color: #ffffff;
         --text-color: #000000;
@@ -221,11 +243,13 @@
 
     <!-- YouTube Video -->
     <iframe
+      <iframe
       width="300"
       height="200"
-      src="https://www.youtube.com/embed/Yz2wCZDYuDI"
+      src="https://www.youtube.com/embed/GJpImi_wVMQ?si=zZD22uFNE18DSVUx"
       allowfullscreen
-    ></iframe>
+    >
+    </iframe>
 
     <!-- Donasi Section -->
     <section class="donasi">
