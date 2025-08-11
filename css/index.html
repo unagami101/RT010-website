@@ -3,11 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portal Kemasyarakatan RT</title>
+    <title>Portal Website RT 010</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap"
       rel="stylesheet"
     />
+    <style>
+      .video-container {
+        position: relative;
+        width: 100%;
+        max-width: 560px;
+        margin: auto;
+        overflow: hidden;
+        padding-top: 56.25%;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 15px;
+      }
+    </style>
     <style>
       :root {
         --bg-color: #ffffff;
@@ -24,118 +50,129 @@
       }
 
       body {
+        font-family: "Rubik", sans-serif;
         background: var(--bg-color);
         color: var(--text-color);
-        font-family: "Poppins", sans-serif;
         margin: 0;
-        overflow-x: hidden;
         transition: all 0.3s ease;
+        overflow-x: hidden;
       }
 
       header {
-        background-color: var(--header-bg);
+        background: var(--header-bg);
         color: white;
         padding: 1rem 2rem;
         text-align: center;
         position: sticky;
         top: 0;
-        z-index: 10;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        transition: transform 0.3s ease-in-out;
       }
-
-      .menu-toggle {
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
-        font-size: 1.5rem;
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
+      header.hide {
+        transform: translateY(-100%);
       }
-
-      nav {
-        display: none;
-        position: absolute;
-        top: 60px;
-        left: 10px;
-        background: var(--header-bg);
-        border-radius: 5px;
-        padding: 0.5rem 1rem;
-      }
-
-      nav a {
-        display: block;
-        color: white;
-        text-decoration: none;
-        margin: 0.5rem 0;
-      }
-
       .theme-toggle {
         position: absolute;
-        top: 1rem;
         right: 1rem;
-        background: #fff;
-        color: #000;
+        top: 1rem;
+        background: white;
+        color: black;
         border: none;
+        border-radius: 5px;
         padding: 0.5rem 1rem;
         cursor: pointer;
-        border-radius: 5px;
       }
 
-      .slider {
-        position: relative;
-        max-width: 100vw;
-        max-height: 400px;
-        overflow: hidden;
+      .hero {
+        text-align: center;
+        padding: 2rem 1rem;
       }
 
-      .slides {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-      }
-
-      .slides img {
-        width: 100vw;
-        height: 400px;
-        object-fit: cover;
-      }
-
-      .slider-nav {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        transform: translateY(-50%);
-      }
-
-      .slider-nav button {
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        border: none;
+      .hero h2 {
         font-size: 2rem;
-        padding: 0.5rem;
-        cursor: pointer;
+        margin-bottom: 0.5rem;
       }
 
-      .container {
-        padding: 2rem;
+      .nav-links {
+        display: flex;
+        justify-content: center;
+        gap: 0.3rem;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text-color);
+        padding: 0.3rem 0.7rem;
+        border: 2px solid var(--text-color);
+        border-radius: 20px;
+      }
+
+      .nav-links a:hover {
+        background: #007bff;
+        color: white;
+      }
+
+      .section {
+        padding: 2rem 1rem;
+      }
+
+      .section h2 {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
       }
 
       .card {
         background: var(--card-bg);
-        border-radius: 1rem;
+        border-radius: 10px;
         padding: 1.5rem;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       }
 
-      .card:hover {
-        transform: translateY(-5px);
+      .social {
+        text-align: center;
+        padding: 2rem 1rem;
+        font-size: 36px;
+        background: var(--card-bg);
+        color: var(--text-color);
+      }
+
+      .fa-youtube {
+        color: red;
+      }
+
+      .fa-instagram {
+        color: #2600ff;
+      }
+      .social a {
+        margin: 0 15px;
+        transition: transform 0.3s ease;
+        display: inline-block;
+      }
+
+      .social a i {
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+      }
+
+      .social a:hover {
+        transform: scale(1.2);
+      }
+
+      .social a:hover i.fa-youtube {
+        color: #3509fc;
+        text-shadow: 0 4px 8px rgba(255, 0, 0, 0.4);
+      }
+
+      .social a:hover i.fa-instagram {
+        color: #ff0000;
+        text-shadow: 0 4px 8px rgba(250, 7, 7, 0.966);
       }
 
       footer {
@@ -143,134 +180,248 @@
         padding: 1rem;
         background: #007bff;
         color: white;
-        margin-top: 2rem;
       }
 
-      .form-input {
-        width: 100%;
-        padding: 0.5rem;
-        margin: 0.5rem 0;
-        border: 1px solid #ccc;
-        border-radius: 5px;
+      /* Daun atau hujan */
+      .effect {
+        position: fixed;
+        pointer-events: none;
+        z-index: 999;
       }
 
-      .gallery-img {
-        width: 100%;
-        border-radius: 0.5rem;
+      .effect i {
+        position: absolute;
+        font-size: 14px;
+        opacity: 0.7;
+        animation: fall 10s linear infinite;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+      }
+
+      .donasi {
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+
+      .donasi img {
+        max-width: 150px;
         margin-top: 1rem;
       }
 
-      .wind {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: 0;
-        pointer-events: none;
+      iframe {
+        display: block;
+        margin: 0 auto;
+        border: none;
+        border-radius: 10px;
+        margin-bottom: 2rem;
       }
 
-      .wind span {
-        position: absolute;
-        width: 100px;
-        height: 2px;
-        background: rgba(0, 0, 0, 0.1);
-        animation: windMove linear infinite;
+      /* Sponsor Section */
+      .sponsor-section {
+        text-align: center;
+        padding: 2rem 1rem;
+        background: var(--card-bg);
+        color: var(--text-color);
       }
 
-      @keyframes windMove {
-        0% {
-          transform: translateX(-100%) translateY(var(--y));
-        }
-        100% {
-          transform: translateX(100vw) translateY(var(--y));
-        }
+      .sponsor-section h2 {
+        margin-bottom: 1.5rem;
+      }
+
+      .sponsor-logos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+      }
+
+      .sponsor-logos img {
+        max-height: 80px;
+        max-width: 150px;
+        object-fit: contain;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .sponsor-logos img:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       }
     </style>
   </head>
   <body>
-    <div class="wind">
-      <span style="--y: 20px; animation-duration: 8s"></span>
-      <span style="--y: 80px; animation-duration: 10s"></span>
-      <span style="--y: 150px; animation-duration: 12s"></span>
-      <span style="--y: 220px; animation-duration: 9s"></span>
-      <span style="--y: 300px; animation-duration: 11s"></span>
-    </div>
-
     <header>
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-      <h1>Portal Warga RT 05</h1>
+      <h1>Portal RT 010</h1>
       <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
-      <nav id="navMenu">
-        <a href="index.html">Beranda</a>
-        <a href="kegiatan.html">Kegiatan</a>
-        <a href="tentangkami.html">Tentang Kami</a>
-        <a href="#donasi">Donasi</a>
-      </nav>
     </header>
 
-    <section class="slider">
-      <div class="slides" id="slideContainer">
-        <img src="images/slide1.jpg" alt="Slide 1" />
-        <img src="images/slide2.jpg" alt="Slide 2" />
-        <img src="images/slide3.jpg" alt="Slide 3" />
-      </div>
-      <div class="slider-nav">
-        <button onclick="prevSlide()">❮</button>
-        <button onclick="nextSlide()">❯</button>
+    <section class="hero">
+      <h2>Selamat Datang di Website RT 010</h2>
+      <p>
+        Informasi kegiatan, dan layanan masyarakat bisa kamu temukan di sini
+      </p>
+    </section>
+
+    <div class="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="kegiatan.html">Kegiatan Kami</a>
+      <a href="tentang kami.html">Tentang Kami</a>
+    </div>
+
+    <!-- YouTube Video -->
+    <iframe
+      width="300"
+      height="200"
+      src="https://www.youtube.com/embed/GJpImi_wVMQ?si=zZD22uFNE18DSVUx"
+      allowfullscreen
+    ></iframe>
+
+    <!-- Donasi Section -->
+    <section class="donasi">
+      <h2>Top List Donasi 17 Agustusan Warga 2025</h2>
+      <li>1.</li>
+      <li>2.</li>
+      <li>3.</li>
+      <li>4.</li>
+      <li>5.</li>
+      <p>
+        Terima kasih untuk para donatur yang sudah membantu kegiatan RT 010.
+      </p>
+
+      <p>
+        <strong
+          >Mari Bersama Membangun Kebaikan. dengan cara scan barcode di
+          bawah</strong
+        >
+      </p>
+      <p>
+        Donasi Anda sangat berarti untuk mendukung kegiatan sosial dan
+        pembangunan lingkungan kita. Setiap kontribusi, sekecil apa pun, adalah
+        langkah besar menuju perubahan.
+      </p>
+      <img src="images/barcode.png" alt="barcode" />
+    </section>
+
+    <!-- Kegiatan -->
+    <section class="section">
+      <h2><i class="fas fa-calendar-check"></i> Kegiatan Terkini</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Pemeriksaan Kesehatan</h3>
+          <p>Tensi darah keliling dari rumah ke rumah sebulan sekali.</p>
+        </div>
+        <div class="card">
+          <h3>Kerja Bakti</h3>
+          <p>warga bergotong royong membersihkan lingkungan.</p>
+        </div>
       </div>
     </section>
 
-    <main class="container">
-      <div class="card">
-        <h2>Beranda</h2>
-        <p>
-          Selamat datang di portal resmi RT 05. Di sini Anda bisa menemukan
-          informasi terbaru seputar kegiatan dan layanan untuk warga.
-        </p>
+    <section class="section">
+      <h2><i class="fas fa-project-diagram"></i> Kegiatan Mendatang</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Peringatan HUT RI</h3>
+          <p>Persiapan lomba dan perayaan Hari Kemerdekaan RI.</p>
+        </div>
+        <div class="card">
+          <h3></h3>
+          <p></p>
+        </div>
       </div>
-      <div class="card" id="donasi">
-        <h2>Donasi RT</h2>
-        <p>
-          Dukung kegiatan RT 05 dengan berdonasi melalui QR code berikut atau
-          transfer ke rekening 123456789 (Bank BRI).
-        </p>
-        <img
-          src="images/qrcode-donasi.png"
-          alt="QR Code Donasi"
-          class="gallery-img"
-        />
-      </div>
-    </main>
+    </section>
 
-    <footer>&copy; 2025 RT 05 - Seluruh Hak Cipta Dilindungi</footer>
+    <section class="section">
+      <h2><i class="fas fa-info-circle"></i> Data Layanan Masyarakat</h2>
+      <div class="grid">
+        <div class="card">
+          <ul>
+            <li>Pengurusan Surat Domisili</li>
+            <li>Pendaftaran Warga Baru</li>
+            <li>Layanan Lainnya</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Laporan Warga</h3>
+          <p>Silakan isi form berikut jika ada laporan atau pengaduan:</p>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdVldGcbK7CbhheZkB3U5YysZC6Q0VR4-GfaoR0fgcRjrV3UA/viewform?usp=preview"
+            target="_blank"
+            >📝 Formulir Google</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Sponsor Section -->
+    <section class="sponsor-section">
+      <h2>Terima Kasih Kepada Sponsor Yang Telah Membantu Kami</h2>
+      <div class="sponsor-logos">
+        <img src="images/sponsor 1.jpg" alt="Sponsor 1" />
+      </div>
+    </section>
+
+    <div class="social">
+      <h3>Ikuti Kami</h3>
+      <a href="https://youtube.com/@rt010asik" target="_blank"
+        ><i class="fab fa-youtube"></i
+      ></a>
+      <a href="https://www.instagram.com/the.passes_" target="_blank"
+        ><i class="fab fa-instagram"></i
+      ></a>
+    </div>
+
+    <footer>
+      Alamat: Jl. Tanjung lengkong, RT 010/RW 007, Kelurahan Bidara Cina,
+      Jakarta Timur 13330<br />
+      &copy; 2025 Portal RT 010
+    </footer>
 
     <script>
       function toggleTheme() {
         document.body.classList.toggle("dark-mode");
       }
 
-      function toggleMenu() {
-        const menu = document.getElementById("navMenu");
-        menu.style.display = menu.style.display === "block" ? "none" : "block";
-      }
+      let lastScrollTop = 0;
+      const header = document.querySelector("header");
 
-      let currentSlide = 0;
-      const slides = document.getElementById("slideContainer");
-      const totalSlides = slides.children.length;
+      window.addEventListener("scroll", function () {
+        const currentScroll =
+          window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScroll > lastScrollTop) {
+          header.classList.add("hide");
+        } else {
+          header.classList.remove("hide");
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+      });
 
-      function showSlide(index) {
-        currentSlide = (index + totalSlides) % totalSlides;
-        slides.style.transform = `translateX(-${currentSlide * 100}vw)`;
-      }
+      // Efek musim sesuai bulan Indonesia
+      const effectContainer = document.createElement("div");
+      effectContainer.classList.add("effect");
+      document.body.appendChild(effectContainer);
 
-      function nextSlide() {
-        showSlide(currentSlide + 1);
-      }
+      const month = new Date().getMonth();
+      const icon =
+        month >= 11 || month <= 2
+          ? "💧"
+          : month >= 5 && month <= 7
+          ? "🍂"
+          : null;
 
-      function prevSlide() {
-        showSlide(currentSlide - 1);
+      if (icon) {
+        for (let i = 0; i < 40; i++) {
+          const elem = document.createElement("i");
+          elem.textContent = icon;
+          elem.style.left = Math.random() * window.innerWidth + "px";
+          elem.style.animationDuration = Math.random() * 3 + 5 + "s";
+          elem.style.fontSize = Math.random() * 10 + 10 + "px";
+          effectContainer.appendChild(elem);
+        }
       }
     </script>
   </body>
