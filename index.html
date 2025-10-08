@@ -182,23 +182,29 @@
         color: white;
       }
 
-      /* Daun atau hujan */
-      .effect {
+      /* Efek air */
+      .ripple {
         position: fixed;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(0, 123, 255, 0.4) 0%,
+          rgba(0, 123, 255, 0) 70%
+        );
         pointer-events: none;
+        animation: ripple-animation 1s ease-out;
         z-index: 999;
       }
 
-      .effect i {
-        position: absolute;
-        font-size: 14px;
-        opacity: 0.7;
-        animation: fall 10s linear infinite;
-      }
-
-      @keyframes fall {
+      @keyframes ripple-animation {
+        from {
+          width: 0;
+          height: 0;
+          opacity: 1;
+        }
         to {
-          transform: translateY(100vh);
+          width: 200px;
+          height: 200px;
           opacity: 0;
         }
       }
@@ -279,46 +285,25 @@
       src="https://www.youtube.com/embed/GJpImi_wVMQ?si=zZD22uFNE18DSVUx"
       allowfullscreen
     ></iframe>
-
     <!-- Donasi Section -->
-    <section class="donasi">
-      <h2>Top List Donasi 17 Agustusan Warga 2025</h2>
-      1. Bapak Yusuf Prianto
-      <p>2. Bapak Pantun M simamora</p>
-
-      <p>3. Bapak Nurli hidayat</p>
-
-      <p>4. Bapak Ali umar</p>
-
-      <p>5. Bapak Syaiful Aziz</p>
-
-      <p>6. Bapak Taufik</p>
-
-      <p>7. Bapak Achrom</p>
-
-      <p>8. Bapak Wakiyo</p>
-
-      <p>9. Bapak Slamet riyadi</p>
-
-      <p>10. Bapak Zainuri</p>
-
-        <p>
-          Terima kasih untuk para donatur yang sudah membantu kegiatan RT 010.
-        </p>
-
-        <p>
-          <strong
-            >Mari Bersama Membangun Kebaikan. dengan cara scan barcode di
-            bawah</strong
-          >
-        </p>
+    <section class="section">
+      <h2><i class="fas fa-hand-holding-heart"></i> Donasi</h2>
+      <div
+        class="card"
+        style="max-width: 600px; margin: 0 auto; text-align: center"
+      >
+        <h3>Dukung Kegiatan RT 010</h3>
         <p>
           Donasi Anda sangat berarti untuk mendukung kegiatan sosial dan
           pembangunan lingkungan kita. Setiap kontribusi, sekecil apa pun,
           adalah langkah besar menuju perubahan.
         </p>
-        <img src="images/barcode.png" alt="barcode" />
-      </li>
+        <img
+          src="images/barcode.png"
+          alt="barcode"
+          style="max-width: 200px; margin-top: 1rem"
+        />
+      </div>
     </section>
 
     <!-- Kegiatan -->
@@ -340,8 +325,8 @@
       <h2><i class="fas fa-project-diagram"></i> Kegiatan Mendatang</h2>
       <div class="grid">
         <div class="card">
-          <h3>Peringatan HUT RI</h3>
-          <p>Persiapan lomba dan perayaan Hari Kemerdekaan RI.</p>
+          <h3>Tour Ke VIlla</h3>
+          <p>Tour Bersama Warga RT010 Ke Villa</p>
         </div>
         <div class="card">
           <h3></h3>
@@ -415,29 +400,26 @@
         lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
       });
 
-      // Efek musim sesuai bulan Indonesia
-      const effectContainer = document.createElement("div");
-      effectContainer.classList.add("effect");
-      document.body.appendChild(effectContainer);
+      // Efek air ketika disentuh/diklik
+      function createRipple(e) {
+        const ripple = document.createElement("div");
+        ripple.classList.add("ripple");
 
-      const month = new Date().getMonth();
-      const icon =
-        month >= 11 || month <= 2
-          ? "💧"
-          : month >= 5 && month <= 7
-          ? "🍂"
-          : null;
+        const x = e.clientX || (e.touches && e.touches[0].clientX);
+        const y = e.clientY || (e.touches && e.touches[0].clientY);
 
-      if (icon) {
-        for (let i = 0; i < 40; i++) {
-          const elem = document.createElement("i");
-          elem.textContent = icon;
-          elem.style.left = Math.random() * window.innerWidth + "px";
-          elem.style.animationDuration = Math.random() * 3 + 5 + "s";
-          elem.style.fontSize = Math.random() * 10 + 10 + "px";
-          effectContainer.appendChild(elem);
-        }
+        ripple.style.left = x - 100 + "px";
+        ripple.style.top = y - 100 + "px";
+
+        document.body.appendChild(ripple);
+
+        setTimeout(() => {
+          ripple.remove();
+        }, 1000);
       }
+
+      document.addEventListener("click", createRipple);
+      document.addEventListener("touchstart", createRipple);
     </script>
   </body>
 </html>
